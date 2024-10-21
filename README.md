@@ -15,8 +15,16 @@ This section provides instructions on how to run the `my-app` React frontend to 
 
 ### Steps to Run
 
-1. **Clone the Repository**
+1.**Clone the Repository**
+   
 Start by cloning this repository to your local machine:
 ```bash
 git clone https://github.com/hty85123/aws-lambda-ecpay-api.git
-2. **Start the Development Server**
+
+2.**Start the Development Server**
+
+Move into the my-app directory, install the required dependencies using npm and start the development server:
+```bash
+cd my-app
+npm install
+npm start
