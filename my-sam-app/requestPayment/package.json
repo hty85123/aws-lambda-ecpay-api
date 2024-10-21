@@ -1,0 +1,12 @@
+{
+  "name": "requestpayment",
+  "version": "1.0.0",
+  "description": "requestPayment Lambda function",
+  "main": "requestPayment.mjs",
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "ecpay_aio_nodejs": "^1.2.2",
+    "mysql2": "^3.11.3"
+  }
+}

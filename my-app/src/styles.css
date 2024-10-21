@@ -1,0 +1,130 @@
+.app-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+.user-data-panel, .transaction-data-panel {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 625px;
+}
+
+.user-data-panel ul, .transaction-data-panel ul {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.user-data-panel li, .transaction-data-panel li {
+    padding: 5px;
+    margin: 3px 0;
+    background-color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+    box-sizing: border-box;
+}
+
+.user-data-panel li:hover, .transaction-data-panel li:hover {
+    background-color: #ddd;
+}
+
+.user-data-panel li.selected {
+    background-color: #cce5ff;
+    border: 2px solid #007bff;
+}
+
+button.inner-btn {
+    margin-right: 10px;
+    margin-top: 0px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap; 
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    background-color: #007bff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.pagination button.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.pagination button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.popup-content input {
+    margin-bottom: 10px;
+}
+
+.transaction-username {
+    margin-bottom: 5px;
+    font-weight: bold;
+}

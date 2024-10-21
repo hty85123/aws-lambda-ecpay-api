@@ -1,0 +1,9 @@
+{
+  "name": "clientreturn",
+  "version": "1.0.0",
+  "description": "clientReturn Lambda function",
+  "main": "clientReturn.mjs",
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {}
+}

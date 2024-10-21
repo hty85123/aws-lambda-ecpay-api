@@ -1,0 +1,13 @@
+{
+  "name": "return",
+  "version": "1.0.0",
+  "description": "return Lambda function",
+  "main": "return.mjs",
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "ecpay_aio_nodejs": "^1.2.2",
+    "querystring": "^0.2.1",
+    "mysql2": "^3.11.3"
+  }
+}

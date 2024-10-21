@@ -1,0 +1,266 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  my-sam-app
+
+  Sample SAM Template for my-sam-app
+
+Globals:
+  Function:
+    Timeout: 5
+    LoggingConfig:
+      LogFormat: JSON
+Resources:
+  MyAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'POST,GET,PUT,DELETE,PATCH,OPTIONS'"
+        AllowOrigin: "'*'"
+        AllowHeaders: "'Content-Type'"
+  GetAllUsersFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: getAllUsers/
+      Handler: getAllUsers.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        GetAllUsersApi:
+          Type: Api 
+          Properties:
+            Path: /users
+            Method: GET
+            RestApiId:
+              Ref: MyAPI
+  GetUserTransactionsFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: getUserTransactions/
+      Handler: getUserTransactions.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        GetUserTransactionsApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions
+            Method: GET
+            RestApiId:
+              Ref: MyAPI
+  CreateTransactionFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: createTransaction/
+      Handler: createTransaction.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        CreateTransactionApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions
+            Method: POST
+            RestApiId:
+              Ref: MyAPI
+  CreateUserFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: createUser/
+      Handler: createUser.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        CreateUserApi:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: POST
+            RestApiId:
+              Ref: MyAPI
+  UpdateTransactionFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: updateTransaction/
+      Handler: updateTransaction.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        CreateUserApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions/{transactionId}
+            Method: PATCH
+            RestApiId:
+              Ref: MyAPI
+  
+  DeleteUserFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: deleteUser/
+      Handler: deleteUser.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        DeleteUserApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}
+            Method: DELETE
+            RestApiId:
+              Ref: MyAPI
+  
+  RequestPaymentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: requestPayment/
+      Handler: requestPayment.handler 
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        RequestPaymentApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions/{transactionId}/requestPayment 
+            Method: POST
+            RestApiId:
+              Ref: MyAPI
+  ReturnFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: return/
+      Handler: return.handler
+      Runtime: nodejs20.x
+      VpcConfig: #Add Your VPC Configuration
+        SecurityGroupIds:
+          - sg-07f6720475442eb7f #The ID of security group for MySQL
+        SubnetIds:
+          - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
+          - subnet-xxxxxxxxxxxxxxxxx # Another subnet
+          - subnet-xxxxxxxxxxxxxxxxx # The other subnet
+      Environment: # ENV variable
+        Variables:
+          RDS_HOSTNAME: your-api-endpoint.com  # Endpoint of the RDS instance
+          RDS_USERNAME: your-RDS-username # Master username for the RDS instance
+          RDS_PASSWORD: your-RDS-password # Master password for the RDS instance
+          RDS_DATABASE: your-target-DB #target DB in your RDS instance
+      Events:
+        ReturnApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions/{transactionId}/return 
+            Method: POST
+            RestApiId:
+              Ref: MyAPI
+  ClientReturnFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: clientReturn/
+      Handler: clientReturn.handler 
+      Runtime: nodejs20.x
+      Events:
+        ClientReturnApi:
+          Type: Api
+          Properties:
+            Path: /users/{userId}/transactions/{transactionId}/clientReturn 
+            Method: GET
+            RestApiId:
+              Ref: MyAPI
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
