@@ -27,7 +27,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -54,7 +54,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -81,7 +81,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -108,7 +108,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -135,7 +135,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -163,7 +163,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -191,7 +191,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
@@ -218,7 +218,7 @@ Resources:
       Runtime: nodejs20.x
       VpcConfig: #Add Your VPC Configuration
         SecurityGroupIds:
-          - sg-07f6720475442eb7f #The ID of security group for MySQL
+          - sg-xxxxxxxxxxxxxxxxx #The ID of security group for MySQL
         SubnetIds:
           - subnet-xxxxxxxxxxxxxxxxx # The common subnet for Lambda and MySQL/Redis
           - subnet-xxxxxxxxxxxxxxxxx # Another subnet
