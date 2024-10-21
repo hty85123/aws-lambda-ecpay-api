@@ -10,6 +10,10 @@ This project integrates **ECPay** with a backend API built on **Amazon Web Servi
 
 ## Demo
 
+<video width="320" height="240" controls>
+  <source src="https://raw.githubusercontent.com/hty85123/aws-lambda-ecpay-api/main/aws-lambda-ecpay-api-demo.mov" type="video/mp4">
+</video>
+
 ### Prerequisites
 
 Before running the app, ensure you have the following installed:
