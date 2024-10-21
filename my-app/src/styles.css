@@ -1,7 +1,7 @@
 .app-container {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 20px;
 }
 
 .user-data-panel, .transaction-data-panel {
@@ -12,7 +12,7 @@
     background-color: #f9f9f9;
     display: flex;
     flex-direction: column;
-    min-height: 625px;
+    min-height: 675px;
 }
 
 .user-data-panel ul, .transaction-data-panel ul {
